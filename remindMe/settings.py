@@ -31,7 +31,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = (
-    'reminder',
+    'reminder', #adding reminder API to INSTALLED_APPS
+    'rest_framework', #adding rest_framework
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -39,6 +40,12 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
 )
+
+#Rest framework configuration.
+REST_FRAMEWORK = {
+    'PAGE_SIZE': 10 #Pagination.
+}
+
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
