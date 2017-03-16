@@ -28,18 +28,15 @@ RemindMe/reminders/
 ```
 
 API Fields:
+```sh
 {
   "email": "user@email.com",
-  
   "phone": "Phone No",
-  
   "message": "Remind me to call abc.",
-  
   "date": "2017-03-16",
-  
   "time": "11:30",
 }
-
+```
 
 Note: provides list, create, retrieve, update and destroy actions.
 
