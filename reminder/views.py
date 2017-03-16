@@ -4,6 +4,7 @@ from reminder.models import Reminder
 from reminder.serializers import ReminderSerializer
 from rest_framework import viewsets,renderers
 from rest_framework.response import Response
+from datetime import datetime
 
 # Create your views here.
 
@@ -11,7 +12,7 @@ from rest_framework.decorators import detail_route
 
 #Reminder viewset that provides provides `list`, `create`, `retrieve`,`update` and `destroy` actions.
 class ReminderViewSet(viewsets.ModelViewSet):
-    queryset = Reminder.objects.all()
+    queryset = Reminder.objects.filter(date__gte=datetime.today()).order_by('date')
     serializer_class = ReminderSerializer
 
     #Additional 'title' action for displaying only message of the reminder.
