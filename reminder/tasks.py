@@ -10,7 +10,8 @@ from .models import Reminder
 
 @task
 def send_reminder(pk):
-    #Send Reminder at specified time.
+    #Send Email Reminder at specified time.
+    print ("Sending email.")
     notify = Reminder.objects.get(pk = pk)
     mail_to = [notify.email, ]
     subject = "Reminder"
@@ -18,3 +19,12 @@ def send_reminder(pk):
     mail_from = settings.EMAIL_HOST_USER
 
     send_mail(subject, message, mail_from, mail_to, fail_silently = False)
+
+@task
+def send_sms(pk):
+    #Send SMS Reminder at specified time.
+    print ("Sending SMS")
+    notify = Reminder.objects.get(pk = pk)
+    sms_to = notify.phone
+    message = notify.message
+    #sendSMS(sms_to, message)
