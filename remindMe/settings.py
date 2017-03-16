@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = (
     'reminder', #adding reminder API to INSTALLED_APPS
     'rest_framework', #adding rest_framework
+    'djcelery', #adding django celery
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -46,6 +47,19 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 10 #Pagination.
 }
 
+EMAIL_USE_TLS = ('586')
+EMAIL_HOST = ('smtp.gmail.com')
+EMAIL_PORT = ('587')
+EMAIL_HOST_USER = ('remindmelaterdjango@gmail.com')
+EMAIL_HOST_PASSWORD = ("djangopassword")
+
+# CELERY
+BROKER_URL = 'redis://localhost:6379'
+CELERY_RESULT_BACKEND = 'redis://localhost:6379'
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TIMEZONE = 'Asia/Kolkata'
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
