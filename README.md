@@ -13,7 +13,7 @@ Start Celery worker
 ```sh
 python manage.py celeryd
 ```
->celery is used for creating background task to send email at the scheduled time.
+>celery is used for creating background task to send notification at the scheduled time.
 
 
 Start Django
@@ -50,3 +50,11 @@ Reminder Message URL:
 ```sh
 /reminders/id/title
 ```
+## Requirements:
+> Django 1.8.2
+> Python 3.5
+> Redis 2.8
+> Celery 4.0
+
+
+Note: SMS function is only a dummy function. It does not actually send a sms.
