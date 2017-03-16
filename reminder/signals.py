@@ -3,10 +3,15 @@ from django.dispatch import receiver
 from .tasks import send_reminder
 from .models import Reminder
 from datetime import datetime
-from django.utils.dateparse import parse_date, parse_time, parse_datetime
+import pytz
 
 @receiver(post_save, sender=Reminder)
 def reminder_handler(sender, instance, **kwargs):
     if instance.email:
-        send_reminder.apply_async(kwargs={'pk': instance.pk})
-        #send_reminder.apply_async(eta = instance.date,kwargs={'pk': instance.pk})
+        dt = datetime.combine(instance.date, instance.time)
+        time_zone = pytz.timezone('Asia/Kolkata')
+        dt = time_zone.localize(dt)
+        utcTime = dt.astimezone(pytz.utc)
+
+        #send_reminder.apply_async(kwargs={'pk': instance.pk})
+        send_reminder.apply_async(eta = utcTime,kwargs={'pk': instance.pk})
