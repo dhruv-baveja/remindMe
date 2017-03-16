@@ -51,10 +51,11 @@ Reminder Message URL:
 /reminders/id/title
 ```
 ## Requirements:
-> Django 1.8.2
-> Python 3.5
-> Redis 2.8
-> Celery 4.0
+Django 1.8.2
+Python 3.5
+Redis 2.8
+Celery 4.0
+
 
 
 Note: SMS function is only a dummy function. It does not actually send a sms.
