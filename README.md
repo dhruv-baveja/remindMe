@@ -15,6 +15,7 @@ python manage.py celeryd
 ```
 >celery is used for creating background task to send email at the scheduled time.
 
+
 Start Django
 ```sh
 python manage.py runserver.
@@ -29,13 +30,19 @@ RemindMe/reminders/
 API Fields:
 {
   "email": "user@email.com",
+  
   "phone": "Phone No",
+  
   "message": "Remind me to call abc.",
+  
   "date": "2017-03-16",
+  
   "time": "11:30",
 }
 
+
 Note: provides list, create, retrieve, update and destroy actions.
+
 
 Reminder URL:
 ```sh
